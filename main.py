@@ -18,11 +18,12 @@ while game_on:
                                   "Guess the name of a state in the United States:   ")
 
     if user_input == 'exit':
-        states_to_learn = []
-        for x in all_states:
-            if x not in correct_guesses:
-                states_to_learn.append(x)
-        print(states_to_learn)
+        # states_to_learn = []
+        # for x in all_states:
+        #     if x not in correct_guesses:
+        #         states_to_learn.append(x)
+        states_to_learn = [state for state in all_states if state not in correct_guesses]
+        # print(states_to_learn)
         pd_temp = pandas.DataFrame(states_to_learn)
         pd_temp.to_csv("states_to_learn.csv")
         break
